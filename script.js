@@ -53,3 +53,18 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "ArrowRight" || e.key === "ArrowLeft") player.dx = 0;
         if (e.key === "ArrowDown" || e.key === "ArrowUp") player.dy = 0;
     }
+
+    // Główna pętla gry
+    function gameLoop() {
+        drawBackground();
+        movePlayer();
+        drawPlayer();
+        requestAnimationFrame(gameLoop);
+    }
+
+    // Nasłuchiwanie klawiatury
+    document.addEventListener("keydown", keyDown);
+    document.addEventListener("keyup", keyUp);
+
+    gameLoop();
+});
